@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .strike-through {
+            text-decoration: line-through;
+            color: lightgray;
+        }
+        .dark {
+            background-color: gray;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            new Vue({
+                el: "#app",
+                data: {
+                    myClass: 'strike-through' ,
+                    darkClass: 'dark',
+                    isOn: true
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <p class="strike-through">직접 클래스</p>
+        <p :class="[myClass , darkClass]">복수의 클래스</p>
+        <p :class="{'strike-through': isOn , 'darks': isOn}">데이터로 클래스 </p>
+    </div>
+</body>
+</html>

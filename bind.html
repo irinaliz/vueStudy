@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function(){
+            new Vue({
+                el: "#app",
+                data : {
+                    fileName : 'https://media.vlpt.us/images/hustle-dev/post/9b4d5fd6-81b1-4d22-8817-16b61f610e9a/img.jpeg'
+                }
+            })
+
+            new Vue({
+                el: "#app2",
+                data : {
+                    fileurl : [
+                        'https://media.vlpt.us/images/hustle-dev/post/9b4d5fd6-81b1-4d22-8817-16b61f610e9a/img.jpeg',
+                        'https://media.vlpt.us/images/hustle-dev/post/9b4d5fd6-81b1-4d22-8817-16b61f610e9a/img.jpeg',
+                        'https://media.vlpt.us/images/hustle-dev/post/9b4d5fd6-81b1-4d22-8817-16b61f610e9a/img.jpeg'
+                    ]
+                }
+            })
+            new Vue({
+                el: "#app3",
+                data : {
+                    fileurl : [
+                        'https://media.vlpt.us/images/hustle-dev/post/9b4d5fd6-81b1-4d22-8817-16b61f610e9a/img.jpeg',
+                        'https://media.vlpt.us/images/hustle-dev/post/9b4d5fd6-81b1-4d22-8817-16b61f610e9a/img.jpeg',
+                        'https://media.vlpt.us/images/hustle-dev/post/9b4d5fd6-81b1-4d22-8817-16b61f610e9a/img.jpeg'
+                    ]
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <img :src="fileName">
+    </div>
+    <div id="app2">
+        <div v-for="url in fileurl" class="abc">
+            <img :src="url">
+        </div>
+    </div>
+    <div id="app3">
+        <div v-for="(value,key) in fileurl" class="abc">
+            <a :href="value">{{key}}</a>
+        </div>
+    </div>
+</body>
+</html>

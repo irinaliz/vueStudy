@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            new Vue({
+                el : "#app",
+                data: {
+                    myPrice: 10000,
+                    myName : "홍길동"
+                }
+            })
+
+            new Vue({
+                el :"#array"
+                ,data:{
+                    arrays :[1,2,3,4,5]
+                }
+            })
+
+            new Vue({
+                el:"#object",
+                data:{
+                    myTea:{name: "다즐링" , price: 1200},
+                    myTea2:{name: "다즐링3" , price: 1500}
+                }
+            })
+
+            var item = [
+                {name: "babo1", by:1},
+                {name: "babo2", by:2},
+                {name: "babo3", by:3}
+            ]
+
+            new Vue({
+                el: "#objectList",
+                data: {
+                    myItems: item
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <p>{{myPrice * 1.08}}</p>
+        <p>{{"안녕하세요 " + myName + "님 "}}</p>
+        <p>{{myName.substr(0,1)}}</p>
+        <p>{{ $data}}</p>
+    </div>
+    --------------------
+    <div id="array">
+        <p>{{arrays[0]}}</p>
+        <p>{{arrays[1]}}</p>
+        <p>{{arrays}}</p>
+        <p>{{ $data}}</p>
+    </div>
+    --------------------
+    <div id="object">
+        <p>{{myTea}}</p>
+        <p>{{myTea.name + " : " + myTea.price}}</p>
+        <p>{{myTea2}}</p>
+        <p>{{myTea2.name + " : " + myTea2.price}}</p>
+    </div>
+    --------------------
+    <div id="objectList">
+        <p>{{myItems[0].name + " : " + myItems[0].by }}</p>
+        <p>{{myItems[1].name + " : " + myItems[1].by }}</p>
+        <p>{{myItems}}</p>
+        <p>{{ $data}}</p>
+    </div>
+</body>
+</html>

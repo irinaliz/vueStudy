@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function(){
+            new Vue({
+                el: "#app",
+                data: {
+                    myText: '뷰를 배워봅시다 이렇게 그냥 출력할 수도 있고',
+                    myHtmlText: '<h3>이렇게 태그를 넣어 작성도 가능</h3>',
+                    myNumber: 12345,
+                    myBool: true,
+                    myArray:[1,2,3,4],
+                    myObject:[
+                        {name:'test1', buy:1200},
+                        {name:'test2', buy:1300},
+                        {name:'test3', buy:1400}
+                    ]
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h2>다양한 데이터의 출력</h2>
+        {{myText}}
+        <p v-text="myText"></p>
+        <p v-html="myHtmlText"></p>
+        <p>숫자 : {{myNumber}}</p>
+        <p>부울형 : {{myBool}}</p>
+        <p>배열 {{myArray}}</p>
+        <li v-for="(item) in myArray">배열 폴문 : {{item}}</li>
+        <p>{{$data}}</p>
+
+        <p>{{myObject}}</p>
+        <li v-for="(item,key) in myObject"> {{key}} : {{item.name}} :  {{item.buy}}
+            <div v-for="(itemssss,keys, index) in item">{{index}} : {{keys}} : {{itemssss}} </div>
+        </li>
+        <!-- 매개변수 순서 -  벨류 , 키 , 인덱스-->
+    </div>
+</body>
+</html>

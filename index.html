@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+        window.onload = function(){
+            
+            new Vue({
+                el: "#app",
+                data: {
+                    count: 0,
+                    babo: 0
+                },
+                methods: {
+                    countUp: function(){
+                        this.count++;
+                        this.babo++;
+                        this.cnt++;
+                        console.log(this);
+                    }, 
+                    countDown : function(){
+                        this.count--;
+                        this.babo--;
+                    }
+                }
+            })
+            
+            new Vue({
+                el: "#babos",
+                data: {
+                    cnt: 1
+                }
+            })
+
+            var abc = new Vue({
+                el: "#abc",
+                data: {
+                    abc: 1
+                }
+            })
+
+            var a = new Vue({
+                el: ".a",
+                data: {
+                    test: "테스트문구"
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <a href="v_html.html">v_html</a>
+    <a href="datatest.html">datatest</a>
+    <a href="dataFor.html">datafor</a>
+    <a href="chapter2Test.html">chapter2Test</a>
+    <h2>클릭시 카운트</h2>
+    <div id="app">
+        <p> {{count}}회</p>
+        <p> {{count}}회</p>
+        <p> {{babo}}앙</p>
+        <button v-on:click="countUp">카운터 업</button>
+        <button v-on:click="countDown">카운트 다운</button>
+    </div>
+    <div id="babos">
+        <p v-text="cnt"> 뀨</p>
+    </div>
+    <div id="abc">
+        <p v-text="abc"></p>
+    </div>
+
+    <div>
+        <ol>
+            <li class="a" v-text="test"></li>
+            <li class="a" v-text="test"></li>
+            <li class="a" v-text="test"></li>
+        </ol>
+    </div>
+
+</body>
+</html>

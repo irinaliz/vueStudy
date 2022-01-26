@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/select.js"></script>
+</head>
+<body>
+    <div id="app">
+        <select v-model="myColor">
+            <option  value="1">1</option>
+            <option  value="2">2</option>
+            <option  value="3">3</option>
+        </select>
+        <p>{{myColor}}</p>
+    </div>
+    <div id="app2">
+        <select v-model="myColor1" multiple>
+            <option value="">선택</option>
+            <option class="b1">a</option>
+            <option class="b2">b</option>
+            <option class="b3">c</option>
+        </select>
+        <p>{{myColor1}}</p>
+    </div>
+    <div id="app3">
+        <select v-model="color" multiple>
+            <option value="red" class="a1">red</option>
+            <option value="green" class="a2">green</option>
+            <option value="blue" class="a3">blue</option>
+            <option value="white" class="a4">white</option>
+        </select>
+        <p :style="{color: color}">내가 선택한 색상은 {{color}}입니다.</p>
+    </div>
+</body>
+</html>

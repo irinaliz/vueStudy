@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function(){
+            new Vue({
+                el: "#app",
+                data: {
+                    text: '',
+                    test: ''
+                } ,
+                methods : {
+                    down: function(){
+                        this.test = this.text;
+                    }
+                }
+            })
+            new Vue({
+                el: "#app2",
+                data: {
+                    num : 0
+                }
+            })
+            
+            new Vue({
+                el : "#app3",
+                data: {
+                    texts : ''
+                }
+            })
+
+            new Vue({
+                el: "#app4",
+                data: {
+                    bbb: 'aaa'
+                },
+                methods: {
+                    updateInput: function(event){
+                        this.bbb = event.target.value;
+                    }
+                }
+            })
+            
+            new Vue({
+                el: "#app5",
+                data: {
+                    myname: '',
+                    color: ''
+                },
+                methods: {
+                    testinput:function(event){
+                        this.myname = event.target.value;
+                    }
+                }
+            })
+        
+            new Vue({
+                el: "#app6",
+                data: {
+                    front : '',
+                    back : '',
+                    total : 0
+                } ,
+                methods : {
+                    add: function(){
+                        this.total = Number(this.front) + Number(this.back);
+                    },
+                    remove: function(){
+                        this.total = Number(this.front) - Number(this.back);
+                    },
+                    multi: function(){
+                        this.total = Number(this.front) * Number(this.back);
+                    },
+                    avg: function(){
+                        this.total = Number(this.front) / Number(this.back);
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <input v-model.lazy="text" v-on:keydown="down" >
+        <p>{{text}}</p>
+        <p>{{test}}</p>
+    </div>
+    <div id="app2">
+        <input v-model="num" type="number">
+        <p>100을 더해 표시 {{100+Number(num)}}</p>
+    </div>
+
+    <div id="app3">
+        <input v-model.trim="texts">
+        <p>공백 제거 ({{texts}})</p>
+    </div>
+
+    <div id="app4">
+        <input type="text" v-on:input="updateInput" v-bind:value="bbb">
+        <p>{{bbb}}</p>
+    </div>
+
+    <div id="app5">
+        <input v-on:input="testinput">
+        <p> 좋아하는 색은 </p>
+        <input type="radio" value="red" v-model="color">빨강</input>
+        <input type="radio" value="yellow" v-model="color">노랑</input>
+        <input type="radio" value="green" v-model="color">초록</input>
+        <p :style="{color: color}">내 이름은 {{myname}} 이고 좋아하는색은 {{color}} 입니다.</p>
+    </div>
+
+    <div id="app6">
+        <input type="text" v-model="front">
+        <input type="text" v-model="back">
+        <p>
+            <button @click="add">덧셈</button>
+            <button @click="remove">뺄셈</button>
+            <button @click="multi">곱셈</button>
+            <button @click="avg">나눗셈</button>
+        </p>
+        <p>{{total}}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/computed.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input v-model.number="price" type="number">
+        <p>소비세 포함 금액 {{taxIncluded}} 원</p>
+    </div>
+
+    <div id="app2">
+        <input type="number" v-model.number="price">
+        <input type="number" v-model.number="count">
+        <p>합계 {{sum}}</p>
+        <p>세금포함 {{taxIncluded}}</p>
+    </div>
+
+    <div id="app3">
+        <textarea v-model="mytext"></textarea>
+        <p v-bind:style="{color : computedColor}">남은 글자는 {{remaining}}</p>
+    </div>
+
+    <div id="app4">
+        <input v-model="find">
+        <ul>
+            <li v-for="item in findWord" > {{item}}</li>
+        </ul>
+    </div>
+
+    <div id="app5">
+        <p v-bind:style="{backgroundColor: colormix }">내 현재 색상 값은 {{colormix}}</p>
+        <input type="range" min="0" max="255" v-model="r">
+        <input type="range" min="0" max="255" v-model="g">
+        <input type="range" min="0" max="255" v-model="b">
+    </div>
+</body>
+</html>

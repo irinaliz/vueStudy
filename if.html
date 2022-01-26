@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/if.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <label><input type="checkbox" v-model="bool">표시</label>
+        <p v-if="bool">애옹!</p>
+        <p v-else>꾸애옹</p>
+    </div>
+
+    <div id="app2">
+        <button v-if="isShow" @click="good">good?</button>
+    </div>
+
+    <div id="app3">
+        <ol>
+            <li v-for="cnt in 10">태그</li>
+        </ol>
+    </div>
+</body>
+</html>

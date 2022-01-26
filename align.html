@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,70 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/align.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app2",
+                data: {
+                    mytext: ''
+                }
+            })
+
+            new Vue({
+                el: "#app3",
+                data: {
+                    test: true
+                }
+            })
+
+            new Vue({
+                el: "#app4",
+                data : {
+                    checkitem:{check1: false , check2:false , check3: false},
+                    all : false
+                },
+                methods :{
+                    allCheck: function(){
+                        if(this.all){
+                            this.all = false;
+                            this.forMethods(this.checkitem, false);
+                        } else{
+                            this.all = true;
+                            this.forMethods(this.checkitem, true);
+                        }
+                    },
+                    forMethods: function(item, bool){
+                        for(var i = 0; i < Object.keys(item).length ; i ++){
+                            item[Object.keys(item)[i]] = bool;
+                        }
+                    }
+                }
+            })
+        }
+    </script>
 </head>
+
 <body>
     <div id="app">
         <p v-bind:align="myalign" v-bind:style="{color: col , backgroundColor: backcol}">텍스트!</p>
         <button v-on:click="move">클릭!</button>
     </div>
+    <div id="app2">
+        <input v-model="mytext">
+        <p>{{mytext}}</p>
+    </div>
+    <div id="app3">
+        <input type="checkbox" v-model="test">
+        <p>{{test}}</p>
+    </div>
+
+    <div id="app4">
+        <input type="checkbox" :checked="all" @change="allCheck" id="t"><label for="t"> 전체선택</label>
+        <p></p>
+        <input type="checkbox" v-model="checkitem.check1" value="a" id="a"><label for="a"> a</label>
+        <input type="checkbox" v-model="checkitem.check2" value="b" id="b"><label for="b"> b</label>
+        <input type="checkbox" v-model="checkitem.check3" value="c" id="c"><label for="c"> c</label>
+    </div>
 </body>
+
 </html>

@@ -18,5 +18,5 @@
                         console.log(i + " / " + last + " / " + align.length + " / " + align[i])
                     }
                 }
-            })
+            });
         }
